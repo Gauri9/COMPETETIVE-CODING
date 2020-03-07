@@ -1,0 +1,30 @@
+#include <bits/stdc++.h> 
+#include<iostream>
+#include<vector>
+using namespace std;
+ 
+int main(){
+    string a="";
+    string str="";
+    int i=0;
+    cin>>a;
+   
+   for(i=0;i<a.length();i++){
+       if(a.at(i)=='0'){
+           break;
+       }
+       str=str+a.at(i);
+   }
+   if(i==a.length()){
+        for(i=1;i<a.length();i++){
+             cout<<a[i];
+        }
+    return 0;
+   }
+    for(i=i+1;i<a.length();i++){
+        str=str+a.at(i);
+    }
+    
+    cout<<str;
+    
+}

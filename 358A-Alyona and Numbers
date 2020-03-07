@@ -1,0 +1,40 @@
+#include <bits/stdc++.h> 
+#include<iostream>
+#include<vector>
+using namespace std;
+ 
+void fun(long long int n,long long int m);
+long long int ans=0;
+void fun(long long int n,long long int m){
+    
+    if(m>n&&m>=5){
+        ans=ans+n*(m/5);
+        fun(n,m%5);
+    }
+    else if(n>=m&&n>=5){
+        ans=ans+m*(n/5);
+        //cout<<"n= "<<n<<"m= "<<m;
+        fun(m,n%5);
+    }
+    else{
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                if((i+j)%5==0){
+                    ans++;
+                }
+            }
+        }
+       cout<<ans;
+       return;
+    }
+    
+    return;
+    }
+ 
+int main(){
+    long long int n,m;
+    cin>>n;
+    cin>>m;
+    fun(n,m);
+    return 0;
+}

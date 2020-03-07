@@ -1,0 +1,54 @@
+#include <bits/stdc++.h> 
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+ 
+int main(){
+   
+   string str,num_str="";
+   cin>>str;
+   
+   if(str.length()>1){
+    string::reverse_iterator rit = str.rbegin();
+    rit++;
+    num_str = num_str + *rit;
+    rit--;
+    num_str = num_str + *rit;
+   }
+   else{
+      num_str = str; 
+   } 
+   
+   int last_two_digits = stoi(num_str);
+   int mod_four = last_two_digits%4;
+   
+   int three_n_five;//3^n%5
+   int two_n_five;//2^n%5
+   
+   if(mod_four==0){
+       three_n_five=1;
+       two_n_five=1;
+   }
+   
+   if(mod_four==1){
+       three_n_five=3;
+       two_n_five=2;
+   }
+   
+   if(mod_four==2){
+       three_n_five=4;
+       two_n_five=4;
+   }
+   
+   if(mod_four==3){
+       three_n_five=2;
+       two_n_five=3;
+   }
+   
+   int ans = (1 + two_n_five + three_n_five + ((two_n_five)*(two_n_five))%5 )% 5;
+   
+   cout<<ans;
+   
+   return 0;
+}

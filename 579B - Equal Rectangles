@@ -1,0 +1,61 @@
+#include <bits/stdc++.h> 
+#include<iostream>
+#include<vector>
+using namespace std;
+ 
+int main(){
+    int noq,n,check=0;int area=0;int i=0,j=0;
+    cin>>noq;
+    while(noq-- !=0){
+        check=0;
+        
+        cin>>n;
+        int arr[4*n];
+        vector<int> l_b;
+        
+        for(i=0;i<4*n;i++){
+            cin>>arr[i];
+        }
+        
+        sort(arr,arr+4*n);
+        
+        for(i=0;i<4*n-1;i=i+2){
+            if(arr[i]==arr[i+1]){
+                l_b.push_back(arr[i]);
+            }
+            else{
+                check=1;
+                cout<<"NO"<<endl;
+                break;
+            }
+        }
+        // for(i=0;i<l_b.size();i++)
+        // cout<<l_b[i]<<" ";
+        
+        // cout<<"\n";
+        
+         if(check==1)
+             continue;
+        else{
+            i=0;
+            j=l_b.size()-1;
+            area=l_b[i]*l_b[j];
+            while(j-i!=-1){
+                if(area==l_b[i]*l_b[j]){
+                    j--;
+                    i++;
+                }
+                else{
+                    check=1;
+                    cout<<"NO"<<endl;
+                    break;
+                }
+            }
+            if(check==1)
+            continue;
+            else
+            cout<<"YES"<<endl;
+        }
+       
+    }
+}
